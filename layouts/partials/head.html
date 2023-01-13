@@ -17,8 +17,10 @@
   {{- if .IsHome -}}
     {{ .Site.Title -}}
   {{ else -}}
-    {{ with .Title }}{{ . }} | {{ end -}}
-    {{ .Site.Title -}}
+    {{ .Title }}
+    {{ if .Site.Params.title_end}}
+    | {{ .Site.Params.title_end -}}
+    {{ end }}
   {{ end -}}
 </title>
 <meta name="description" content="{{ template "partials/page-description.html" . }}">
